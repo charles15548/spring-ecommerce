@@ -10,10 +10,15 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 
-@Data
+
 @Entity
 @Table(name = "usuarios")
+@Data
 public class Usuario {
+
+	
+
+	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,4 +36,24 @@ public class Usuario {
 	
 	@OneToMany(mappedBy = "usuario")
 	private List<Orden> ordenes;
+
+	public Usuario(Integer id, String nombre, String username, String email, String direccion, String telefono,
+			String tipo, String password) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.username = username;
+		this.email = email;
+		this.direccion = direccion;
+		this.telefono = telefono;
+		this.tipo = tipo;
+		this.password = password;
+	}
+
+	public Usuario() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
 }
